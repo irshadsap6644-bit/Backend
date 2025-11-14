@@ -1,23 +1,21 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Simple API Route
-app.get("/", (req, res) => {
-  res.send("Backend is running successfully 🚀");
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Backend is live on Render!');
 });
 
-// Your invoice API will go here later
-// Example:
-app.post("/api/invoice", (req, res) => {
-  const data = req.body;
-  res.json({ message: "Invoice received", data });
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Test API is working!' });
 });
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
