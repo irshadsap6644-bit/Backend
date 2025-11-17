@@ -6,11 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+// Use port 5000 locally OR Render's provided port
+const PORT = process.env.PORT || 5000;
 
 // Home route
 app.get('/', (req, res) => {
-  res.send('Backend is live on Render!');
+  res.send('Backend is live!');
 });
 
 // Test route
@@ -33,6 +34,7 @@ app.get('/api/total-customers', (req, res) => {
   res.json({ customers: 18 });
 });
 
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
